@@ -1,0 +1,94 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Career </title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="~/Content/style.css" />
+  <!-- modernizr enables HTML5 elements and feature detects -->
+
+    <link href="~/Content/newjquery.css" rel="stylesheet" />
+<link href="~/Content/jqueryui.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.7.1.js"></script>
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+
+<link href="~/Content/global.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Scripts/jquerymin.js"></script>
+<link href="~/Content/jqueryui.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-1.5.min.js"></script>
+    
+    <script src="../../Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery.sooperfish.js"></script>
+    <script src="~/Scripts/jquery.sooperfish.js"></script>
+    <script src="~/Scripts/jquery.easing-sooper.js"></script>
+</head>
+
+<body>
+  <div id="main">
+    <header>
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="/Home/Index">Career Guider<span class="logo_colour"></span></a></h1>
+          <h2>Leading towards future</h2>
+        </div>
+      </div>
+      <nav>
+        <div id="menu_container">
+          <ul class="sf-menu" id="nav">
+            <li><a href="/Home/index">Home</a></li>
+            <li><a href="/Programs/Index">Programs</a></li>
+            <li><a href="/ScholarShip/Index">ScholarShip</a></li>
+              <li><a href="/Rankings/Ranking123">Search</a></li>
+           
+@*            <li><a href="#">Example Drop Down</a>
+              <ul>
+                <li><a href="#">Drop Down One</a></li>
+                <li><a href="#">Drop Down Two</a>
+                  <ul>
+                    <li><a href="#">Sub Drop Down One</a></li>
+                    <li><a href="#">Sub Drop Down Two</a></li>
+                    <li><a href="#">Sub Drop Down Three</a></li>
+                    <li><a href="#">Sub Drop Down Four</a></li>
+                    <li><a href="#">Sub Drop Down Five</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Drop Down Three</a></li>
+                <li><a href="#">Drop Down Four</a></li>
+                <li><a href="#">Drop Down Five</a></li>
+              </ul>
+            </li>*@
+            <li><a href="/ContactUs/ContactUs123">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div id="site_content">
+      
+
+
+        @RenderBody()
+        </div>
+
+    <footer>
+      <p> Punjab university college of information and technology</p>
+    </footer>
+  </div>
+  <p>&nbsp;</p>
+  <!-- javascript at the bottom for fast page loading -->
+  <script >
+      $(document).ready(function () {
+          $('ul.sf-menu').sooperfish();
+      });
+     
+
+
+  </script>
+</body>
+</html>

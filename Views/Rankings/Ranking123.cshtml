@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Ranking123";
+}
+
+<script>
+    function search1()
+    {
+        var temp = $("#s123").val();
+      
+        //alert(temp);
+        $.getJSON("/Rankings/Search123?sdata="+temp , function (data)
+        {
+            $("#112").empty();
+           // alert("hi ");
+            $.each(data, function (i, item)
+            {
+
+                    
+                    $("#112").append("<tr><td>" + item.proName + "</td><td>" + item.depName + "</td>" + "<td>" + item.uniName + "</td><td>" + item.applyDate + "</td><td>" + item.type1 + "</td><tr>");
+               
+               
+               
+
+            });
+            return false;
+        });
+    }
+    </script>
+<div class="content" style="margin-left:200px">
+        <h1 style="margin-right:600px;">Search</h1>
+       
+          <div class="form_settings" style="margin-right:500px;">
+            <input class="contact" type="text" name="your_name" value="" id="s123"  required/>
+            
+            <p style="padding-top: 15px"><span>&nbsp;</span>
+             <input type="button" class="submit"  name="contact_submitted" value="Search" onclick="search1()" /></p>
+              <table border="10" id="12"><tr><th> Program </th><th>Department</th><th>University</th><th> ApplyDate</th><th> Type</th></tr><tbody id="112"></tbody></table>
+          </div>
+        @*</form>*@
+      </div>
+<div id="showSearch">
+
+</div>

@@ -1,0 +1,75 @@
+﻿@model List<MvcApplication1.Models.Program>
+@{
+    ViewBag.Title = "Result123";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<script>
+    function applyw(path)
+    {
+      
+        $.getJSON("/Programs/programDetail?iid=" +path, function (data123) 
+        {
+            
+            $( "#detail123" ).empty();  
+            if (data123) 
+            {
+                
+                $( "#detail123" ).append( data123.ApplyWay );
+                
+                return false;
+            }
+            else {
+                
+                return true;;
+
+            }
+        });
+             
+        
+    }
+</script>
+<div style="margin-left:250px">
+    <table border="10">
+        <tr>
+            <th>Program
+            </th>
+            <th>Department
+            </th>
+            <th>University
+            </th>
+            <th>ApplyDate</th>
+            <th>Apply Guide</th>
+        </tr>
+
+        @foreach (var item in ViewBag.a)
+        {
+            <tr>
+                <td>
+                    @item.proName
+                </td>
+                <td>
+                    @item.depName
+                </td>
+                <td>
+                    @item.uniName
+                </td>
+                <td>
+                    @item.applyDate
+                </td>
+                <td>
+                    <input type="button" value="How to Apply" onclick="applyw(@item.Id)">
+                </td>
+
+            </tr>
+    
+        }
+
+    </table>
+    <div id="detail123" style="margin-left: 10px; margin-right: 150px; border:groove">
+    </div>
+</div>
+
+

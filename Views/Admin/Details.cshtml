@@ -1,0 +1,33 @@
+﻿@model MvcApplication1.Models.News
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    Layout = "";
+}
+
+<h2>Details</h2>
+<fieldset>
+    <legend>News</legend>
+
+    <div >
+        
+       NewsMain:  @Model.NewsMain
+    </div>
+    
+    <div >
+        NewsLink : @Model.NewsLink
+
+    </div>
+    
+
+    <div >
+        Institution : @Model.Institution
+    </div>
+   
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

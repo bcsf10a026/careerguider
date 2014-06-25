@@ -1,0 +1,90 @@
+﻿@model List<MvcApplication1.Models.Scholarship>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="margin-left: 250px; margin-top: 100px">
+    <h2 style="font-size: xx-large; color: white; margin-right: 500px;">Scholarships</h2>
+
+
+  
+    <script>
+        function f123(path)
+        {
+
+            $.getJSON("/Scholarship/getDatail?Id=" +path, function (data) 
+            {
+                
+                if (data) 
+                {
+                    $( "#datail123" ).load( data.DetailLink );
+                    // alert(data.DetailLink);
+                    $.each(data, function (i, item)
+                    {
+                        
+                    
+                        $("#datail123").append(data.DatailLink);
+
+                        // $('#userName').val("");
+                        // alert("jhjhjhj");
+                        return false;
+                    });
+                }
+                else {
+                    // $('#result').text("User Name is available");
+                    return true;;
+
+                }
+            });
+             
+            $(function(){
+                $( "#datail123" ).load( path );
+            });
+
+        }
+        
+        
+    </script>
+    <table border="10">
+        <tr>
+            <th>Level
+            </th>
+            <th>Amount
+            </th>
+            <th>Institute
+            </th>
+            <th>Detail
+            </th>
+           <th>
+               GetDetail
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.leval
+                </td>
+                <td>
+                    @item.Amount
+                </td>
+                <td>
+                    @item.Institute
+                </td>
+                <td>
+                    @item.Detail
+                </td>
+                <td>
+                    <input type="button" value="Detail" onclick="f123(@item.Id);">
+
+                </td>
+            </tr>
+    
+        }
+
+    </table>
+</div>
+<div id="datail123" style="margin-left: 80px; margin-right: 80px; color: greenyellow; border: solid; font-size: larger;">
+</div>

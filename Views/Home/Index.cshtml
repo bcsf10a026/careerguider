@@ -1,0 +1,193 @@
+﻿
+   
+@{
+    ViewBag.Title = "Home";
+      
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    
+}
+
+<div id="sidebar_container">
+    <div class="sidebar">
+    
+    </div>
+    <div class="sidebar">
+        <h3>Useful Links</h3>
+        <ul>
+            <li><a href="http://www.pu.edu.pk">Punjab University Lahore</a></li>
+            <li><a href="http://www.uet.edu.pk/">University of Engineering and Technology(UET)Lahore</a></li>
+            <li><a href="http://www.lums.edu.pk/">Lahore University of Management Sciences (LUMS)</a></li>
+            <li><a href="http://www.gcu.edu.pk/">GC University Lahore</a></li>
+            <li><a href="http://www.qau.edu.pk/">Quaid-i-Azam University</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="content">
+    <h1>Welcome to Career Guider</h1>
+    <div>
+        <script type="text/javascript" src="~/Scripts/jquery123.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                //Set Default State of each portfolio piece
+                $(".paging").show();
+                $(".paging a:first").addClass("active");
+
+                //Get size of images, how many there are, then determin the size of the image reel.
+                var imageWidth = $(".window").width();
+                var imageSum = $(".image_reel img").size();
+                var imageReelWidth = imageWidth * imageSum;
+
+                //Adjust the image reel to its new size
+                $(".image_reel").css({ 'width': imageReelWidth });
+
+                //Paging + Slider Function
+                rotate = function () {
+                    var triggerID = $active.attr("rel") - 1; //Get number of times to slide
+                    var image_reelPosition = triggerID * imageWidth; //Determines the distance the image reel needs to slide
+
+                    $(".paging a").removeClass('active'); //Remove all active class
+                    $active.addClass('active'); //Add active class (the $active is declared in the rotateSwitch function)
+
+                    //Slider Animation
+                    $(".image_reel").animate({
+                        left: -image_reelPosition
+                    }, 500);
+
+                };
+
+                //Rotation + Timing Event
+                rotateSwitch = function () {
+                    play = setInterval(function () { //Set timer - this will repeat itself every 3 seconds
+                        $active = $('.paging a.active').next();
+                        if ($active.length === 0) { //If paging reaches the end...
+                            $active = $('.paging a:first'); //go back to first
+                        }
+                        rotate(); //Trigger the paging and slider function
+                    }, 7000); //Timer speed in milliseconds (3 seconds)
+                };
+
+                rotateSwitch(); //Run function on launch
+
+                //On Hover
+                $(".image_reel a").hover(function () {
+                    clearInterval(play); //Stop the rotation
+                }, function () {
+                    rotateSwitch(); //Resume rotation
+                });
+
+                //On Click
+                $(".paging a").click(function () {
+                    $active = $(this); //Activate the clicked paging
+                    //Reset Timer
+                    clearInterval(play); //Stop the rotation
+                    rotate(); //Trigger rotation immediately
+                    rotateSwitch(); // Resume rotation
+                    return false; //Prevent browser jump to link anchor
+                });
+
+            });
+            /////////////////=========================================================////////////////////////////////////////////////////////////////
+
+            function tick2() {
+                $('#ticker_02 li:first').slideUp(function () { $(this).appendTo($('#ticker_02')).slideDown(); });
+            }
+            setInterval(function () { tick2() }, 3000);
+
+
+            function tick3() {
+                $('#ticker_03 li:first').animate({ 'opacity': 0 }, 200, function () { $(this).appendTo($('#ticker_03')).css('opacity', 1); });
+            }
+            setInterval(function () { tick3() }, 4000);
+
+            function tick4() {
+                $('#ticker_04 li:first').slideUp(function () { $(this).appendTo($('#ticker_04')).slideDown(); });
+            }
+            $(document).ready(function search1() {
+                $("#n1").empty();
+                $("#n2").empty();
+                $("#n3").empty();
+                $("#n4").empty();
+                //alert("jhvbhfdvbd");
+
+                $.getJSON("/Home/GetNews", function (data) {
+                    // alert("hi ");
+
+                    $.each(data, function (i, item) {
+                        if (i == 0)
+                            $("#n1").append("....." + i + "...." + item.NewsMain);
+
+                        if (i == 1) {
+                            $("#n2").append(item.NewsMain)
+                            //    $("#n2").append(item.NewsMain);
+                        }
+                        if (i == 2) {
+                            $("#n3").append(item.NewsMain);
+                        }
+                        if (i == 3) {
+                            $("#n4").append(item.NewsMain);
+                        }
+
+
+
+                    });
+                    return false;
+                });
+            });
+         
+        </script>
+
+        <div>
+
+            <div >
+
+                <div class="main_view">
+                    <div class="window">
+                        <div style="width: 3160px; left: -2370px;"
+                            class="image_reel">
+
+                            <a href="#">
+                                <img style="height: 286px; width: 700px;" src="~/images/career_1.jpg" alt="" /></a>
+                            <a href="#">
+                                <img style="height: 286px; width: 700px;" src="~/images/career_2.jpg" alt="" /></a>
+                            <a href="#">
+                                <img style="height: 286px; width: 700px;" src="~/images/LES-2010-picture.jpg" alt="" /></a>
+                            <a href="#">
+                                <img style="height: 286px; width: 700px;" src="~/images/qu_1.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                    <div style="display: block;" class="paging">
+                        <a class="" href="#" rel="1">1</a>
+                        <a class="" href="#" rel="2">2</a>
+                        <a class="" href="#" rel="3">3</a>
+                        <a class="" href="#" rel="4">4</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+        <h1 align="center"> Tips For Career deciding</h1>
+        <h3>Evaluate Your Work Style</h3>
+    <p>
+        The right career for you will be suited to your work style. Are you a self-starter who accomplishes goals on your own, or do you need the discipline of a structured work environment to do your best? An honest evaluation of your work style will help you decide whether a career where you work independently is right for you. If you're naturally a daydreamer or a procrastinator, you may do well in a career where a supervisor help you stay on task.
+    
+
+    
+    </p>
+    <h3>Know Your Talents </h3>
+    <p>
+      Do you have a hobby or a talent that you love and are good at? Think of ways to transform activities that come naturally to you into a career. Working with wood, playing an instrument or trying different hair styles can lead to careers as a custom furniture marker, a musician or a hair stylist. Doing what you love can lead to a rewarding career.
+    </p>
+    <h3>Set Financial Goals</h3>
+    <p>One of your goals should be to choose a career where you can earn enough money to meet your financial goals. If you want to own a vacation home on every continent and fly to these homes on your private jet, a career as a retail clerk will probably not help you achieve your goals. You may have to make some compromises along the way, but generally speaking, the career you choose should allow you to meet your financial goals. </p>
+    <h3> Conduct Informational Interviews </h3>
+    <p>
+A 15-minute informational interview with someone who has a job you think you want can help cement your career choice. Many people will be happy to meet briefly with you to talk about the pros and cons of what they do and tell you whether they would make the same career choice if they could turn back time and choose differently. Start and end the meeting on time, ask probing questions and listen carefully to the answers.
+    </p>
+</div>

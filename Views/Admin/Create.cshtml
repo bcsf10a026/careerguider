@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "creat";
+}
+@{
+    Layout = "";
+}
+
+<h2>Creat</h2>
+
+@using (Html.BeginForm()) {
+   
+
+    <fieldset>
+        <legend>News</legend>
+
+        <div>
+            <label >NewsMain</label>
+        </div>
+        <div>
+            <input  id="3" name="3" type="text" value="" />
+            
+        </div>
+
+        <div >
+            <label >NewsLink</label>
+        </div>
+        <div >
+            <input  id="1" name="1" type="text" value="" />
+            
+        </div>
+
+        <div >
+            <label >Institution</label>
+        </div>
+        <div>
+            <input id="2" name="2" type="text" value="" />
+           
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+

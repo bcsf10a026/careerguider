@@ -1,0 +1,53 @@
+﻿@model MvcApplication1.Models.News
+
+@{
+    ViewBag.Title = "Edit";
+}
+@{
+    Layout = "";
+}
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+   
+
+    <fieldset>
+        <legend>News</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewsMain)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.NewsMain)
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewsLink)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.NewsLink)
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Institution)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Institution)
+           
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+

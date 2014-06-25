@@ -1,0 +1,49 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Index</h2>
+
+<p>
+   
+
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+           NewsMain
+        </th>
+        <th>
+            NewsLink
+        </th>
+        <th>
+            Instituation
+        </th>
+        <th></th>
+    </tr>
+  @foreach (var item in Model) {
+    <tr>
+        <td>
+           @item.NewsMain
+        </td>
+        <td>
+            @item.NewsLink
+        </td>
+        <td>
+           @item.Institution
+        </td>
+        <td>
+            
+
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
